@@ -1,0 +1,33 @@
+## 最小栈
+```
+class MinStack {
+    final static int maxn=30000;
+    int stack[]=new int[maxn];
+    int top;
+    public MinStack() {
+        top=-1;
+    }
+    
+    public void push(int val) {
+        stack[++top]=val;
+        // Arrays.sort(stack);
+    }
+    
+    public void pop() {
+        stack[top--]=0;
+    }
+    
+    public int top() {
+        //if(top<0)return null;
+        return stack[top];
+    }
+    
+    public int getMin() {
+        int copy_stack[]=new int[top+1];//
+        for(int i=0;i<=top;i++)copy_stack[i]=stack[i];
+        Arrays.sort(copy_stack);
+        return copy_stack[0];
+    }
+}
+
+```
